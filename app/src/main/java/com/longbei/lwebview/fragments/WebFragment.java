@@ -61,28 +61,11 @@ public class WebFragment extends Fragment {
     public static final String KEY_CACHE = "WebResourceInterceptor-Key-Cache";
     private static HashSet STATIC = new HashSet() {
         {
-            add("html");
-            add("htm");
-            add("js");
-            add("ico");
-            add("css");
             add("png");
             add("jpg");
             add("jpeg");
             add("gif");
             add("bmp");
-            add("ttf");
-            add("woff");
-            add("woff2");
-            add("otf");
-            add("eot");
-            add("svg");
-            add("xml");
-            add("swf");
-            add("txt");
-            add("text");
-            add("conf");
-            add("webp");
         }
     };
     private static HashSet NO_CACH = new HashSet() {
