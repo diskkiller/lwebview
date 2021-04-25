@@ -9,8 +9,8 @@ import com.longbei.lwebview.bean.TypeBean;
 
 import java.util.List;
 
-public class ReportAdapter extends BaseQuickAdapter<TypeBean, BaseViewHolder> {
-    public ReportAdapter(int layoutResId, @Nullable List<TypeBean> data) {
+public class ProjectAdapter extends BaseQuickAdapter<TypeBean, BaseViewHolder> {
+    public ProjectAdapter(int layoutResId, @Nullable List<TypeBean> data) {
         super(layoutResId, data);
     }
 

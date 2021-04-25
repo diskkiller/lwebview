@@ -33,6 +33,23 @@
             android:textColor="#333333"
             android:textSize="18sp" />
 
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minHeight="75dp"
+            android:padding="4dp"
+            android:background="@drawable/shape_feedback_et"
+            android:textColor="@color/picture_color_black"
+            android:textSize="14sp"
+            android:gravity="top"
+            android:hint="请填写意见"
+            android:text=""
+            android:paddingLeft="8dp"
+            android:paddingTop="6dp"
+            />
+
 
 
     </LinearLayout>

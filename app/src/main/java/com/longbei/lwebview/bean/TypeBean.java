@@ -1,21 +1,43 @@
 package com.longbei.lwebview.bean;
 
-public class TypeBean {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-    private int id;
+public class TypeBean implements Serializable {
+
+    private String id;
 
     private String title;
 
-    private int parentId;
+    private String parentId;
 
-    private String parentTypeTitle;
+    private String content;
 
-    public int getType() {
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    private List<TypeBean> list = new ArrayList();
+
+    public List<TypeBean> getList() {
+        return list;
+    }
+
+    public void setList(List<TypeBean> list) {
+        this.list = list;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setType(int type) {
-        this.id = type;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -26,12 +48,11 @@ public class TypeBean {
         this.title = title;
     }
 
-    public int getParentType() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentType(int parentType) {
-        this.parentId = parentType;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
-
 }

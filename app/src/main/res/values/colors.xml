@@ -46,4 +46,8 @@
     <color name="biz_audio_progress_bg">#00b2ff</color>
     <color name="biz_audio_progress_first">#ffffff</color>
     <color name="biz_audio_progress_second">#6b6666</color>
+
+    <color name="front_black_1">#393A3B</color>
+    <color name="color_D8D8D8">#D8D8D8</color>
+
 </resources>
