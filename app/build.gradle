@@ -54,4 +54,10 @@ dependencies {
 
     //全屏大图
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    //implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.1'
+    implementation project(':picture_library')
+
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
