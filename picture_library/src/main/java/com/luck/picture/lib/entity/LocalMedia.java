@@ -7,13 +7,15 @@ import android.text.TextUtils;
 
 import com.luck.picture.lib.config.PictureConfig;
 
+import java.io.Serializable;
+
 /**
  * @author：luck
  * @date：2017-5-24 16:21
  * @describe：Media Entity
  */
 
-public class LocalMedia implements Parcelable {
+public class LocalMedia implements Parcelable, Serializable {
     /**
      * file to ID
      */

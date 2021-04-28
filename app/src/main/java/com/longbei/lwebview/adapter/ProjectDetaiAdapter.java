@@ -46,33 +46,24 @@ import java.util.List;
 public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHolder> {
     private PictureCropParameterStyle mCropParameterStyle;
     private Activity activity;
-    private TypeBean cur_item;
+    private boolean isPreView;
 
-    public ProjectDetaiAdapter(int layoutResId, @Nullable List<TypeBean> data, Activity activity) {
+    public ProjectDetaiAdapter(int layoutResId, @Nullable List<TypeBean> data, Activity activity,boolean isPreView) {
         super(layoutResId, data);
         this.activity = activity;
+        this.isPreView = isPreView;
     }
 
 
     @Override
     protected void convert(BaseViewHolder helper, TypeBean item) {
-			/*String runNum = "进行中 " + item.getCollectingNum();
-			helper.setText(R.id.tv_report_name, item.getName())
-					.setText(R.id.field_control_num, item.getNum() + "篇报告");
-			if (item.getCollectingNum() <= 0) {
-				helper.setVisible(R.id.field_control_running_num, false);
-			} else {
-				helper.setVisible(R.id.field_control_running_num, true)
-						.setText(R.id.field_control_running_num, runNum);
-			}
-			ImageView view = helper.getView(R.id.iv_report_item_icon);
-			GlideUtils.loadRoundedCorner(getApplicationContext(), view, item.getIcon());*/
-
         helper.setText(R.id.tv_report_name, item.getId()+"--"+item.getTitle());
         helper.setText(R.id.et_content, StringUtils.isEmpty(item.getContent())?"":item.getContent());
         helper.addOnClickListener(R.id.et_content);
 
         EditText editText = helper.getView(R.id.et_content);
+        if(StringUtils.isNotEmpty(item.getContent()))
+            editText.setText(item.getContent());
 
         final MyTextWatcher watcher = new MyTextWatcher(item);
         editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -95,7 +86,7 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(4,
                 ScreenUtils.dip2px(getContext(), 8), false));
 
-        GridImageAdapter mAdapter = new GridImageAdapter(getContext(), onAddPicClickListener,item);
+        GridImageAdapter mAdapter = new GridImageAdapter(getContext(), onAddPicClickListener,item,isPreView);
         mAdapter.setSelectMax(9);
         mRecyclerView.setAdapter(mAdapter);
 

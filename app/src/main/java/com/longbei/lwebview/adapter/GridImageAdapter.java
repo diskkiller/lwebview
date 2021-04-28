@@ -42,6 +42,7 @@ public class GridImageAdapter extends
     private List<LocalMedia> list = new ArrayList<>();
     private int selectMax = 9;
     private TypeBean item;
+    private boolean isPreview;
     /**
      * 点击添加图片跳转
      */
@@ -67,10 +68,11 @@ public class GridImageAdapter extends
         }
     }
 
-    public GridImageAdapter(Context context, onAddPicClickListener mOnAddPicClickListener, TypeBean item) {
+    public GridImageAdapter(Context context, onAddPicClickListener mOnAddPicClickListener, TypeBean item,boolean isPreview) {
         this.mInflater = LayoutInflater.from(context);
         this.mOnAddPicClickListener = mOnAddPicClickListener;
         this.item = item;
+        this.isPreview = isPreview;
     }
 
     public TypeBean getItem() {
@@ -111,7 +113,7 @@ public class GridImageAdapter extends
 
     @Override
     public int getItemCount() {
-        if (list.size() < selectMax) {
+        if (list.size() < selectMax && !isPreview) {
             return list.size() + 1;
         } else {
             return list.size();
@@ -147,22 +149,24 @@ public class GridImageAdapter extends
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         //少于8张，显示继续添加的图标
-        if (getItemViewType(position) == TYPE_CAMERA) {
+        if (getItemViewType(position) == TYPE_CAMERA && !isPreview) {
             viewHolder.mImg.setImageResource(R.drawable.ic_add_image);
             viewHolder.mImg.setOnClickListener(v -> mOnAddPicClickListener.onAddPicClick(this));
             viewHolder.mIvDel.setVisibility(View.INVISIBLE);
         } else {
-            viewHolder.mIvDel.setVisibility(View.VISIBLE);
-            viewHolder.mIvDel.setOnClickListener(view -> {
-                int index = viewHolder.getAdapterPosition();
-                // 这里有时会返回-1造成数据下标越界,具体可参考getAdapterPosition()源码，
-                // 通过源码分析应该是bindViewHolder()暂未绘制完成导致，知道原因的也可联系我~感谢
-                if (index != RecyclerView.NO_POSITION && list.size() > index) {
-                    list.remove(index);
-                    notifyItemRemoved(index);
-                    notifyItemRangeChanged(index, list.size());
-                }
-            });
+            if(!isPreview){
+                viewHolder.mIvDel.setVisibility(View.VISIBLE);
+                viewHolder.mIvDel.setOnClickListener(view -> {
+                    int index = viewHolder.getAdapterPosition();
+                    // 这里有时会返回-1造成数据下标越界,具体可参考getAdapterPosition()源码，
+                    // 通过源码分析应该是bindViewHolder()暂未绘制完成导致，知道原因的也可联系我~感谢
+                    if (index != RecyclerView.NO_POSITION && list.size() > index) {
+                        list.remove(index);
+                        notifyItemRemoved(index);
+                        notifyItemRangeChanged(index, list.size());
+                    }
+                });
+            }
             LocalMedia media = list.get(position);
             if (media == null
                     || TextUtils.isEmpty(media.getPath())) {
