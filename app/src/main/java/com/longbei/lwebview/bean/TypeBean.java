@@ -1,5 +1,7 @@
 package com.longbei.lwebview.bean;
 
+import com.luck.picture.lib.entity.LocalMedia;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,16 @@ public class TypeBean implements Serializable {
     private String parentId;
 
     private String content;
+
+    private List<LocalMedia> data;
+
+    public List<LocalMedia> getData() {
+        return data;
+    }
+
+    public void setData(List<LocalMedia> data) {
+        this.data = data;
+    }
 
     public String getContent() {
         return content;

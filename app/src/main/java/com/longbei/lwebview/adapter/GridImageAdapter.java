@@ -14,6 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.longbei.lwebview.R;
+import com.longbei.lwebview.bean.TypeBean;
+import com.longbei.lwebview.listener.OnItemLongClickListener;
+import com.luck.picture.lib.config.PictureMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.listener.OnItemClickListener;
+import com.luck.picture.lib.tools.DateUtils;
 
 
 import java.io.File;
@@ -34,13 +41,14 @@ public class GridImageAdapter extends
     private LayoutInflater mInflater;
     private List<LocalMedia> list = new ArrayList<>();
     private int selectMax = 9;
+    private TypeBean item;
     /**
      * 点击添加图片跳转
      */
     private onAddPicClickListener mOnAddPicClickListener;
 
     public interface onAddPicClickListener {
-        void onAddPicClick();
+        void onAddPicClick(GridImageAdapter adapter);
     }
 
     /**
@@ -59,9 +67,14 @@ public class GridImageAdapter extends
         }
     }
 
-    public GridImageAdapter(Context context, onAddPicClickListener mOnAddPicClickListener) {
+    public GridImageAdapter(Context context, onAddPicClickListener mOnAddPicClickListener, TypeBean item) {
         this.mInflater = LayoutInflater.from(context);
         this.mOnAddPicClickListener = mOnAddPicClickListener;
+        this.item = item;
+    }
+
+    public TypeBean getItem() {
+        return item;
     }
 
     public void setSelectMax(int selectMax) {
@@ -136,7 +149,7 @@ public class GridImageAdapter extends
         //少于8张，显示继续添加的图标
         if (getItemViewType(position) == TYPE_CAMERA) {
             viewHolder.mImg.setImageResource(R.drawable.ic_add_image);
-            viewHolder.mImg.setOnClickListener(v -> mOnAddPicClickListener.onAddPicClick());
+            viewHolder.mImg.setOnClickListener(v -> mOnAddPicClickListener.onAddPicClick(this));
             viewHolder.mIvDel.setVisibility(View.INVISIBLE);
         } else {
             viewHolder.mIvDel.setVisibility(View.VISIBLE);

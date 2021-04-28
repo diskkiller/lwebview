@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         SoulPermission.getInstance().checkAndRequestPermissions(
                 Permissions.build( Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO,
                         Manifest.permission.READ_PHONE_STATE),
                 new CheckRequestPermissionsListener() {
                     @Override
