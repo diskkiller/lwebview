@@ -21,7 +21,7 @@
             app:tabSelectedTextColor="#30e407"
             app:tabIndicatorColor="#30e407"
             app:tabIndicatorHeight="2dp"
-            app:tabBackground="@color/colorWhite"
+            app:tabBackground="@color/app_color_f6"
             app:tabMode="fixed"
             app:tabPaddingStart="5dp"
             app:tabPaddingEnd="5dp"

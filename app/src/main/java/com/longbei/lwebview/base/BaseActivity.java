@@ -93,7 +93,7 @@ public abstract class BaseActivity extends IBaseActivity {
 
 
     protected void setStatusBar() {
-        int color = getResources().getColor(R.color.colorWhite);
+        int color = getResources().getColor(R.color.app_color_white);
         StatusBarUtil.setColor(this, color, 0);
         StatusBarUtil.setLightMode(this);
     }
@@ -109,7 +109,7 @@ public abstract class BaseActivity extends IBaseActivity {
 
 
     public void setStatusBarWhite() {
-        int color = getResources().getColor(R.color.colorWhite);
+        int color = getResources().getColor(R.color.app_color_white);
         StatusBarUtil.setColor(this, color,0);
         StatusBarUtil.setLightMode(this);
     }
