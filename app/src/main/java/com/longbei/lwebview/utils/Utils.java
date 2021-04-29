@@ -111,7 +111,7 @@ public class Utils {
 
 		LinearLayout linearLayout = (LinearLayout) mToast.getView();
 		TextView messageTextView = (TextView) linearLayout.getChildAt(0);
-		messageTextView.setTextSize(25);
+		messageTextView.setTextSize(12);
 
 		mToast.setGravity(Gravity.CENTER, 0, 0);
 		mToast.setText(msg);

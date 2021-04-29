@@ -63,12 +63,12 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         } else {
             startActivity(SelectAccountActivity.class);
         }*/
-        startActivity(loginac);
+        startActivity(LoginActivity.class);
 
         finish();
     }
 
-    CountDownTimer timer = new CountDownTimer(1 * 1000, 1200) {
+    CountDownTimer timer = new CountDownTimer(3 * 1000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             skip.setText("跳过" + millisUntilFinished / 1000);

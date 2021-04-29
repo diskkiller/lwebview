@@ -45,7 +45,7 @@
             android:name="design_height_in_dp"
             android:value="667" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +54,13 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.ProjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ProjectDetailActivity"

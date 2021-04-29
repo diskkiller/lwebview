@@ -31,13 +31,22 @@
             android:layout_height="wrap_content"
             android:text="现场管理"
             android:textColor="#333333"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_content_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="指导意见"
+            android:textColor="#333333"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/et_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:minHeight="75dp"
             android:padding="4dp"
             android:background="@drawable/shape_feedback_et"
@@ -45,7 +54,7 @@
             android:textSize="14sp"
             android:gravity="top"
             android:hint="指导意见"
-            android:textColorHint="@color/picture_color_grey_3e"
+            android:textColorHint="#4d1a1a1a"
             android:text=""
             android:paddingLeft="8dp"
             android:paddingTop="6dp"
@@ -55,18 +64,19 @@
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/picture_color_black"
             android:textSize="14sp"
-            android:text=""
+            android:text="指导意见"
             />
 
 
         <TextView
+            android:id="@+id/tv_media_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="拍摄图片或视频"
+            android:text="图片或视频"
             android:textColor="#333333"
             android:textSize="14sp" />
 
@@ -74,7 +84,6 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:overScrollMode="never" />
 
     </LinearLayout>

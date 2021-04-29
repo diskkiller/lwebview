@@ -28,6 +28,7 @@
         android:textColor="@color/app_color_white"
         android:background="@drawable/selector_corner_2_blue_checked"
         android:textSize="16dp"
+        android:visibility="gone"
         />
 
 </LinearLayout>

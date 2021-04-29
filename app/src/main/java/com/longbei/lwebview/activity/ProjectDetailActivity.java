@@ -72,6 +72,7 @@ public class ProjectDetailActivity extends BaseActivity {
     public void initViews(Bundle savedInstanceState) {
         rvReportList = (RecyclerView) findViewById(R.id.rv_report_list);
         tv_commit = findViewById(R.id.tv_commit);
+        tv_commit.setVisibility(View.VISIBLE);
 
         rvReportList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

@@ -106,7 +106,7 @@
                 android:enabled="true"
                 android:gravity="center"
                 android:text="登录"
-                android:textColor="@color/white"
+                android:textColor="@color/app_color_white"
                 android:textSize="16dp" />
 
             <LinearLayout
@@ -136,6 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="7dp"
+                        android:textColor="@color/picture_color_grey_3e"
                         android:text="我已阅读并同意"
                         android:textSize="13sp" />
 
@@ -144,19 +145,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="《用户协议》"
-                        android:textColor="@color/color_0CAEF6"
+                        android:textColor="#0CAEF6"
                         android:textSize="13sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="和"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textColor="@color/picture_color_grey_3e"
+                        />
                     <TextView
                         android:id="@+id/tv_privacy_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="《隐私政策》"
-                        android:textColor="@color/color_0CAEF6"
+                        android:textColor="#0CAEF6"
                         android:textSize="13sp" />
                 </LinearLayout>
 

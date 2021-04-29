@@ -62,17 +62,19 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
         helper.setText(R.id.et_content, StringUtils.isEmpty(item.getContent())?"":item.getContent());
         helper.addOnClickListener(R.id.et_content);
 
-        EditText editText = helper.getView(R.id.et_content);
-        TextView textView = helper.getView(R.id.tv_content);
+        EditText et_content = helper.getView(R.id.et_content);
+        TextView tv_content = helper.getView(R.id.tv_content);
+        TextView tv_content_title = helper.getView(R.id.tv_content_title);
+        TextView tv_media_title = helper.getView(R.id.tv_media_title);
         if(!isPreView){
-            editText.setVisibility(View.VISIBLE);
-            textView.setVisibility(View.GONE);
+            et_content.setVisibility(View.VISIBLE);
+            tv_content.setVisibility(View.GONE);
 
             if(StringUtils.isNotEmpty(item.getContent()))
-                editText.setText(item.getContent());
+                et_content.setText(item.getContent());
 
             final MyTextWatcher watcher = new MyTextWatcher(item);
-            editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            et_content.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     EditText mV = (EditText) v;
@@ -84,10 +86,15 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
                 }
             });
         }else{
-            editText.setVisibility(View.GONE);
-            textView.setVisibility(View.VISIBLE);
-            if(StringUtils.isNotEmpty(item.getContent()))
-                textView.setText(item.getContent());
+            et_content.setVisibility(View.GONE);
+            if(StringUtils.isNotEmpty(item.getContent())){
+                tv_content_title.setVisibility(View.VISIBLE);
+                tv_content.setVisibility(View.VISIBLE);
+                tv_content.setText(item.getContent());
+            }else{
+                tv_content.setVisibility(View.GONE);
+                tv_content_title.setVisibility(View.GONE);
+            }
         }
 
 
@@ -104,9 +111,24 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
         mRecyclerView.setAdapter(mAdapter);
 
         List<LocalMedia> data = item.getData();
-        if (data != null && data.size() > 0){
-            mAdapter.setList(data);
-            mAdapter.notifyDataSetChanged();
+
+        if(!isPreView){
+            if (data != null && data.size() > 0){
+                mRecyclerView.setVisibility(View.VISIBLE);
+                tv_media_title.setVisibility(View.VISIBLE);
+                mAdapter.setList(data);
+                mAdapter.notifyDataSetChanged();
+            }
+        }else{
+            if (data != null && data.size() > 0){
+                mRecyclerView.setVisibility(View.VISIBLE);
+                tv_media_title.setVisibility(View.VISIBLE);
+                mAdapter.setList(data);
+                mAdapter.notifyDataSetChanged();
+            }else{
+                mRecyclerView.setVisibility(View.GONE);
+                tv_media_title.setVisibility(View.GONE);
+            }
         }
 
         mAdapter.setOnItemClickListener((v, position) -> {

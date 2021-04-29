@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.exit(0);
+        //System.exit(0);
     }
 
     private static final int TIME_EXIT = 2000;
@@ -150,8 +150,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (mBackPressed + TIME_EXIT > System.currentTimeMillis()) {
-            super.onBackPressed();
-            return;
+           finish();
         } else {
             Utils.showToastCenter(this, "再点击一次退出程序");
             mBackPressed = System.currentTimeMillis();
