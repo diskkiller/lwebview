@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -62,21 +63,33 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
         helper.addOnClickListener(R.id.et_content);
 
         EditText editText = helper.getView(R.id.et_content);
-        if(StringUtils.isNotEmpty(item.getContent()))
-            editText.setText(item.getContent());
+        TextView textView = helper.getView(R.id.tv_content);
+        if(!isPreView){
+            editText.setVisibility(View.VISIBLE);
+            textView.setVisibility(View.GONE);
 
-        final MyTextWatcher watcher = new MyTextWatcher(item);
-        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                EditText mV = (EditText) v;
-                if (hasFocus) {
-                    mV.addTextChangedListener(watcher);
-                } else {
-                    mV.removeTextChangedListener(watcher);
+            if(StringUtils.isNotEmpty(item.getContent()))
+                editText.setText(item.getContent());
+
+            final MyTextWatcher watcher = new MyTextWatcher(item);
+            editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    EditText mV = (EditText) v;
+                    if (hasFocus) {
+                        mV.addTextChangedListener(watcher);
+                    } else {
+                        mV.removeTextChangedListener(watcher);
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            editText.setVisibility(View.GONE);
+            textView.setVisibility(View.VISIBLE);
+            if(StringUtils.isNotEmpty(item.getContent()))
+                textView.setText(item.getContent());
+        }
+
 
         RecyclerView mRecyclerView =  helper.getView(R.id.recycler);
         FullyGridLayoutManager manager = new FullyGridLayoutManager(getContext(),

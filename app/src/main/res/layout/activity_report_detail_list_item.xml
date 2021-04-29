@@ -44,16 +44,37 @@
             android:textColor="@color/picture_color_black"
             android:textSize="14sp"
             android:gravity="top"
-            android:hint="请填写意见"
+            android:hint="指导意见"
+            android:textColorHint="@color/picture_color_grey_3e"
             android:text=""
             android:paddingLeft="8dp"
             android:paddingTop="6dp"
             />
 
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/picture_color_black"
+            android:textSize="14sp"
+            android:text=""
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="拍摄图片或视频"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:overScrollMode="never" />
 
     </LinearLayout>
