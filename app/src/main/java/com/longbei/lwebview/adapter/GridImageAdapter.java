@@ -113,7 +113,7 @@ public class GridImageAdapter extends
 
     @Override
     public int getItemCount() {
-        if (list.size() < selectMax && !isPreview) {
+        if (list.size() < selectMax && ! isPreview) {
             return list.size() + 1;
         } else {
             return list.size();
