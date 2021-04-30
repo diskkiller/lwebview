@@ -58,7 +58,7 @@ public class ProjectDetaiAdapter extends BaseQuickAdapter<TypeBean, BaseViewHold
 
     @Override
     protected void convert(BaseViewHolder helper, TypeBean item) {
-        helper.setText(R.id.tv_report_name, item.getId()+"--"+item.getTitle());
+        helper.setText(R.id.tv_report_name, item.getTitle());
         helper.setText(R.id.et_content, StringUtils.isEmpty(item.getContent())?"":item.getContent());
         helper.addOnClickListener(R.id.et_content);
 

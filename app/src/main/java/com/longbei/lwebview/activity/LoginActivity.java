@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.longbei.lwebview.MainActivity;
+import com.longbei.lwebview.MainActivityTest;
 import com.longbei.lwebview.R;
 import com.longbei.lwebview.base.BaseActivity;
 import com.longbei.lwebview.gson.GsonUtil;
@@ -154,7 +155,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void login(final String username, final String securityCode) {
-        startActivity(MainActivity.class);
+        startActivity(MainActivityTest.class);
         finish();
     }
 

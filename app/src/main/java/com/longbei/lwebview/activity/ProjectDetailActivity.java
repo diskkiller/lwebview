@@ -70,6 +70,8 @@ public class ProjectDetailActivity extends BaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
+        initBaseTitle();
+
         rvReportList = (RecyclerView) findViewById(R.id.rv_report_list);
         tv_commit = findViewById(R.id.tv_commit);
         tv_commit.setVisibility(View.VISIBLE);

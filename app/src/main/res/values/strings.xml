@@ -1,5 +1,7 @@
 <resources>
+<!--
     <string name="app_name">lwebview</string>
+-->
     <string name="picture_prompt">提示</string>
     <string name="picture_cancel">取消</string>
     <string name="picture_confirm">确定</string>

@@ -40,6 +40,8 @@ public class ProjectActivity extends BaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
+        initBaseTitle();
+
         rvReportList = (RecyclerView) findViewById(R.id.rv_report_list);
 
         rvReportList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
